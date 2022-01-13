@@ -47,4 +47,38 @@ Find out there's no missing values in the data. <br/><br/>
 X = data.document
 y = data.label
 ```
-Put documents on the variable 'X', labels on the varialble 'y' for building a model.
+Put documents on the variable 'X', labels on the varialble 'y' for building a model. <br/><br/>
+
+## import CountVectorizer for word embedding
+```python
+from sklearn.feature_extraction.text import CountVectorizer
+
+vectorizer = CountVectorizer()
+```
+
+## training
+```python
+vectorizer.fit(X)       # X = data.document
+X = vectorizer.transform(X)
+```
+
+
+## import LogisticRegression & training
+```python
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression()
+model.fit(X, y)
+```
+
+<br/>
+
+
+## Run model
+```python
+X_pred = vectorizer.transform(["너무 재밌어요!"])
+y_pred = model.predict(X_pred)      # pos:1, neg:0
+```
+```python
+[1]
+```
